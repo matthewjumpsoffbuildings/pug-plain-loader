@@ -1,4 +1,4 @@
-# pug-vue-loader
+# vue-pug-loader
 
 A loader that compiles [pug](https://pugjs.org) templates into HTML specifically for use in Vue component templates. Forked from [yyx990803/pug-plain-loader](https://github.com/yyx990803/pug-plain-loader), added an AST modifying plugin to convert native pug syntax into an AST that Vue will understand
 
@@ -16,7 +16,7 @@ ul
   // ...Vue component JS
 ```
 
-With `pug-vue-loader` you can rely on the proper, first-class native pug syntax for iteration and conditionals, as well as var interpolation, eg:
+With `vue-pug-loader` you can rely on the proper, first-class native pug syntax for iteration and conditionals, as well as var interpolation, eg:
 
 ```pug
 <template lang="pug">
@@ -53,7 +53,7 @@ template(v-if="foo == 1")
 Note `pug` is a peer dependency, so make sure to install both:
 
 ``` sh
-npm install -D pug-vue-loader pug
+npm install -D vue-pug-loader pug
 ```
 
 ## Usage
@@ -68,7 +68,7 @@ If you are only using this loader for templating in single-file Vue components, 
     rules: [
       {
         test: /\.pug$/,
-        loader: 'pug-vue-loader'
+        loader: 'vue-pug-loader'
       }
     ]
   }
@@ -89,11 +89,11 @@ If you also intend to use it to import `.pug` files as HTML strings in JavaScrip
           // this applies to pug imports inside JavaScript
           {
             exclude: /\.vue$/,
-            use: ['raw-loader', 'pug-vue-loader']
+            use: ['raw-loader', 'vue-pug-loader']
           },
           // this applies to <template lang="pug"> in Vue components
           {
-            use: ['pug-vue-loader']
+            use: ['vue-pug-loader']
           }
         ]
       }
@@ -104,7 +104,7 @@ If you also intend to use it to import `.pug` files as HTML strings in JavaScrip
 
 ## Using with Laravel Mix
 
-You can use `pug-vue-loader` in [Laravel Mix](https://laravel-mix.com/) by passing the relevant Webpack rules to Mix's `webpackConfig` method, eg:
+You can use `vue-pug-loader` in [Laravel Mix](https://laravel-mix.com/) by passing the relevant Webpack rules to Mix's `webpackConfig` method, eg:
 
 ``` js
 .webpackConfig({
@@ -112,7 +112,7 @@ You can use `pug-vue-loader` in [Laravel Mix](https://laravel-mix.com/) by passi
     rules: [
       {
         test: /\.pug$/,
-        loader: 'pug-vue-loader',
+        loader: 'vue-pug-loader',
       }
     ],
   }
