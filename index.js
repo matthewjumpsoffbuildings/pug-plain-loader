@@ -1,6 +1,6 @@
 const pug = require('pug')
 const loaderUtils = require('loader-utils')
-const plugin = require('./plugin')
+const plugin = require('pug-vue-plugin')
 
 module.exports = function (source)
 {

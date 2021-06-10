@@ -1,8 +1,10 @@
 # pug-vue-loader
 
-A loader that compiles [pug](https://pugjs.org) templates into HTML specifically for use in Vue component templates. Forked from [yyx990803/pug-plain-loader](https://github.com/yyx990803/pug-plain-loader), added an AST modifying plugin to convert native pug syntax into an AST that Vue will understand
+A Webpack loader that compiles [pug](https://pugjs.org) templates into HTML specifically for use in Vue component templates. Forked from [yyx990803/pug-plain-loader](https://github.com/yyx990803/pug-plain-loader), added [pug-vue-plugin](https://npmjs.com/pug-vue-plugin) to convert native pug syntax into an AST that Vue will understand. 
 
-The motivation for this fork is to add first-class pug language support in the context of Vue components. Instead of writing an ugly mish-mash of pug _and_ Vue syntax in your component, eg:
+If you want first class pug support in Vue component templates, and you don't use Webpack/Laravel Mix, use [pug-vue-plugin](https://npmjs.com/pug-vue-plugin) instead.
+
+The motivation for this fork is to add first-class pug syntax support in the context of Vue component templates. Instead of writing an ugly mish-mash of pug _and_ Vue syntax in your component, eg:
 
 ```pug
 <template lang="pug">
