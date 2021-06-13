@@ -1,8 +1,8 @@
-# pug-vue-loader
+# vue-pug-loader
 
-A Webpack loader that compiles [pug](https://pugjs.org) templates into HTML specifically for use in Vue component templates. Forked from [yyx990803/pug-plain-loader](https://github.com/yyx990803/pug-plain-loader), added [pug-vue-plugin](https://npmjs.com/pug-vue-plugin) to convert native pug syntax into an AST that Vue will understand. 
+A Webpack loader that compiles [pug](https://pugjs.org) templates into HTML specifically for use in Vue component templates. Forked from [pug-plain-loader](https://npmjs.com/package/pug-plain-loader), added [vue-pug-plugin](https://npmjs.com/package/vue-pug-plugin) to convert native pug syntax into an AST that Vue will understand. 
 
-If you want first class pug support in Vue component templates, and you don't use Webpack/Laravel Mix, use [pug-vue-plugin](https://npmjs.com/pug-vue-plugin) instead.
+If you want first class pug support in Vue component templates, and you don't use Webpack/Laravel Mix, use [vue-pug-plugin](https://npmjs.com/package/vue-pug-plugin) instead.
 
 The motivation for this fork is to add first-class pug syntax support in the context of Vue component templates. Instead of writing an ugly mish-mash of pug _and_ Vue syntax in your component, eg:
 
@@ -18,7 +18,7 @@ ul
   // ...Vue component JS
 ```
 
-With `pug-vue-loader` you can rely on the proper, first-class native pug syntax for iteration and conditionals, as well as var interpolation, eg:
+With `vue-pug-loader` you can rely on the proper, first-class native pug syntax for iteration and conditionals, as well as var interpolation, eg:
 
 ```pug
 <template lang="pug">
@@ -55,7 +55,7 @@ template(v-if="foo == 1")
 Note `pug` is a peer dependency, so make sure to install both:
 
 ``` sh
-npm install -D pug-vue-loader pug
+npm install -D vue-pug-loader pug
 ```
 
 ## Usage
@@ -70,7 +70,7 @@ If you are only using this loader for templating in single-file Vue components, 
     rules: [
       {
         test: /\.pug$/,
-        loader: 'pug-vue-loader'
+        loader: 'vue-pug-loader'
       }
     ]
   }
@@ -91,11 +91,11 @@ If you also intend to use it to import `.pug` files as HTML strings in JavaScrip
           // this applies to pug imports inside JavaScript
           {
             exclude: /\.vue$/,
-            use: ['raw-loader', 'pug-vue-loader']
+            use: ['raw-loader', 'vue-pug-loader']
           },
           // this applies to <template lang="pug"> in Vue components
           {
-            use: ['pug-vue-loader']
+            use: ['vue-pug-loader']
           }
         ]
       }
@@ -106,7 +106,7 @@ If you also intend to use it to import `.pug` files as HTML strings in JavaScrip
 
 ## Using with Laravel Mix
 
-You can use `pug-vue-loader` in [Laravel Mix](https://laravel-mix.com/) by passing the relevant Webpack rules to Mix's `webpackConfig` method, eg:
+You can use `vue-pug-loader` in [Laravel Mix](https://laravel-mix.com/) by passing the relevant Webpack rules to Mix's `webpackConfig` method, eg:
 
 ``` js
 .webpackConfig({
@@ -114,7 +114,7 @@ You can use `pug-vue-loader` in [Laravel Mix](https://laravel-mix.com/) by passi
     rules: [
       {
         test: /\.pug$/,
-        loader: 'pug-vue-loader',
+        loader: 'vue-pug-loader',
       }
     ],
   }
@@ -122,6 +122,8 @@ You can use `pug-vue-loader` in [Laravel Mix](https://laravel-mix.com/) by passi
 ```
 
 ## Vue variable interpolation
+
+You can continue to use Vue-style variable interpolation (eg `{{ foo }}`) if you wish, but you may also prefer to use pug style interpolation instead.
 
 Any instance of pug [buffered code](https://pugjs.org/language/code.html#buffered-code) will get converted to Vue antlers syntax. For example:
 
