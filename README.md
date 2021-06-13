@@ -79,7 +79,7 @@ If you are only using this loader for templating in single-file Vue components, 
 
 This will apply this loader to all `<template lang="pug">` blocks in your Vue components.
 
-If you also intend to use it to import `.pug` files as HTML strings in JavaScript, you will need to chain `raw-loader` after this loader. Note however adding `raw-loader` would break the output for Vue components, so you need to have two rules, one of them excluding Vue components:
+If you also intend to import `.pug` files as HTML strings in JavaScript for use outside of Vue single file components, you will need to chain `raw-loader` after either `vue-pug-loader` (if you still want to transform the pug syntax into Vue syntax) _or_ [pug-plain-loader](https://npmjs.com/package/pug-plain-loader) (if you dont want to transform pug syntax into Vue syntax). Note however adding `raw-loader` would break the output for Vue components, so you need to have two rules, one of them excluding Vue components:
 
 ``` js
 {
@@ -91,7 +91,7 @@ If you also intend to use it to import `.pug` files as HTML strings in JavaScrip
           // this applies to pug imports inside JavaScript
           {
             exclude: /\.vue$/,
-            use: ['raw-loader', 'vue-pug-loader']
+            use: ['raw-loader', 'pug-plain-loader']
           },
           // this applies to <template lang="pug"> in Vue components
           {
