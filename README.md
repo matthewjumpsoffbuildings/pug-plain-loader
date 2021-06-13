@@ -123,9 +123,9 @@ You can use `vue-pug-loader` in [Laravel Mix](https://laravel-mix.com/) by passi
 
 ## Vue variable interpolation
 
-You can continue to use Vue-style variable interpolation (eg `{{ foo }}`) if you wish, but you may also prefer to use pug style interpolation instead.
+You can continue to use Vue-style variable interpolation syntax (eg `{{ foo }}`) if you wish, but you may also prefer to use pug interpolation syntax instead.
 
-Any instance of pug [buffered code](https://pugjs.org/language/code.html#buffered-code) will get converted to Vue antlers syntax. For example:
+If you prefer to stick with native pug interpolation syntax, any instance of pug [buffered code](https://pugjs.org/language/code.html#buffered-code) will get be automatically converted to Vue antlers syntax. For example:
 
 ```pug
 p= foo
@@ -149,7 +149,7 @@ Will become:
 p some normal text {{foo}} hey there
 ```
 
-Note that for Vue _attributes_ you should continue to wrap them in string literals, eg:
+Note that for Vue _attribute_ variables you should continue to wrap them in string literals, eg:
 
 ```pug
 //- correct
