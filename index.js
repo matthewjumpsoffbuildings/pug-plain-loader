@@ -11,9 +11,7 @@ module.exports = function (source)
 	}, loaderUtils.getOptions(this))
 	
 	if(!options.plugins) options.plugins = []
-	options.plugins.push({
-		preCodeGen: plugin
-	})
+	options.plugins.push(plugin)
 
 	const template = pug.compile(source, options)
 	template.dependencies.forEach(this.addDependency)
